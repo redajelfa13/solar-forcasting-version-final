@@ -1,0 +1,12 @@
+openmeteo-requests
+requests-cache
+retry-requests
+pandas
+numpy
+scikit-learn
+lightgbm
+imbalanced-learn
+shap
+matplotlib
+seaborn
+jupyter

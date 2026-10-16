@@ -67,6 +67,11 @@ Alert hours are only about 3% of the data, so the model combines **SMOTE**, clas
 ## Repository structure
 
 ```
+├── 01_data_collection.ipynb  # download 2019–2024 hourly weather from Open-Meteo
+├── 02_preprocessing.ipynb    # cleaning + feature engineering
+├── 03_baseline_model.ipynb   # Layer 1: Random Forest per city
+├── 04_meta_model.ipynb       # Layer 2: LightGBM meta-error model
+├── requirements.txt
 ├── data/
 │   ├── raw/                  # hourly weather per city (Open-Meteo)
 │   └── processed/            # cleaned data + engineered features
@@ -86,8 +91,12 @@ Alert hours are only about 3% of the data, so the model combines **SMOTE**, clas
 ```bash
 git clone https://github.com/redajelfa13/solar-irradiance-forecasting.git
 cd solar-irradiance-forecasting
-pip install pandas numpy scikit-learn lightgbm imbalanced-learn shap matplotlib seaborn jupyter
+pip install -r requirements.txt
 ```
+
+**Reproduce the pipeline:** run the notebooks in order (`01 → 02 → 03 → 04`). Each one reads the previous step's output from `data/`, `models/` or `results/`. The data and trained models are already included, so you can also start at any step.
+
+**Or load the trained models directly:**
 
 ```python
 import joblib, pandas as pd
